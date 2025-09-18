@@ -39,10 +39,6 @@ RUN pip install --no-cache /wheels/*
 # Копируем исходный код приложения
 COPY . .
 
-# *** ВАЖНО: Собираем статические файлы ***
-# Эта команда создаст директорию /home/app/staticfiles и необходимый манифест
-RUN python manage.py collectstatic --no-input
-
 # Меняем владельца файлов на созданного пользователя
 RUN chown -R app:app /home/app
 
