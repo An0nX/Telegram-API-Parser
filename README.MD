@@ -1,7 +1,3 @@
-Конечно. Вот полная, финальная версия README.md без каких-либо сокращений, с четким разделением на два независимых способа установки и всеми необходимыми инструкциями.
-
----
-
 # Анализатор Telegram-каналов | Telegram Channel Analyzer
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python&logoColor=white)
