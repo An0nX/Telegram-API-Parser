@@ -107,6 +107,12 @@ docker compose up -d
 ```bash
 docker compose exec app python manage.py migrate
 ```
+
+#### Шаг 7: Сбор статических файлов
+**Важно:** Этот шаг необходим для корректной работы веб-интерфейса API.
+```bash
+docker compose exec app python manage.py collectstatic --no-input
+```
 🎉 **Готово!** Сервис работает и доступен по адресу `http://localhost:8000`.
 
 ---
