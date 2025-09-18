@@ -62,6 +62,7 @@ services:
 volumes:
   postgres_data:
   telegram_session:
+  static_volume:
 ```
 
 #### Шаг 3: Создайте файл `.env`
