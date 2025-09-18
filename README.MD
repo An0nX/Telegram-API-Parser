@@ -114,6 +114,12 @@ docker compose exec app python manage.py migrate
 ```bash
 docker compose exec app python manage.py collectstatic --no-input
 ```
+
+#### Шаг 8: Перезапустите веб-сервер
+```bash
+docker compose restart app
+```
+
 🎉 **Готово!** Сервис работает и доступен по адресу `http://localhost:8000`.
 
 ---
