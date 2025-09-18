@@ -6,7 +6,7 @@
 ![Celery](https://img.shields.io/badge/Celery-5.3+-37814A?style=for-the-badge&logo=celery&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-20+-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/gpl-3.0)
 
 Это веб-сервис, предоставляющий REST API для асинхронного сбора и анализа статистики публичных Telegram-каналов. Он использует **Telethon** для взаимодействия с Telegram API и **Celery** для фоновой обработки задач, что позволяет запускать длительные анализы без блокировки основного процесса.
 
