@@ -10,8 +10,4 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . .
 
-RUN chown -R app:app /home/app
-
-USER app
-
 EXPOSE 8000
