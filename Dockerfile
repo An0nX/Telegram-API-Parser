@@ -1,9 +1,9 @@
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
 # --- Этап 1: Сборщик зависимостей ---
 # Используем полную версию Python для установки зависимостей, включая компиляцию
 FROM python:3.11-slim as builder
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
 WORKDIR /usr/src/app
 
@@ -19,6 +19,9 @@ RUN pip wheel --no-cache-dir --wheel-dir /usr/src/app/wheels -r requirements.txt
 # --- Этап 2: Финальный образ ---
 # Используем легкий образ для уменьшения размера
 FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
 # Создаем пользователя без прав root для безопасности
 RUN addgroup --system app && adduser --system --group app
