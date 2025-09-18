@@ -1,0 +1,36 @@
+name: Publish Docker Image to Docker Hub
+
+# Запускать воркфлоу при пуше в ветку main
+on:
+  push:
+    branches: [ "main" ]
+  # Позволяет запускать воркфлоу вручную со страницы Actions
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest # Запускаем на последней версии Ubuntu
+
+    steps:
+      # 1. Клонируем репозиторий, чтобы получить доступ к коду и Dockerfile
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Логинимся в Docker Hub с использованием секретов
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # 3. Собираем Docker-образ и пушим его в Docker Hub
+      # Образ будет иметь два тега: 'latest' и тег с SHA коммита для версионирования
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          # Файл, который будет использоваться для сборки
+          file: ./Dockerfile 
+          push: true
+          # Укажите здесь имя вашего образа. Рекомендуемый формат: <ваш_username>/<имя_репозитория>
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/telegram-api-parser:latest,${{ secrets.DOCKERHUB_USERNAME }}/telegram-api-parser:${{ github.sha }}
